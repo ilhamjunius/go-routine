@@ -15,3 +15,7 @@ func TestCreateGoroutine(t *testing.T) {
 	fmt.Println("Ups")
 	time.Sleep(1 * time.Second)
 }
+
+func DisplayNumber(number int) {
+	fmt.Println("Display", number)
+}

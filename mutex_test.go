@@ -10,9 +10,9 @@ import (
 func TestMutex(t *testing.T) {
 	x := 0
 	var mutex sync.Mutex
-	for i := 0; i < 100; i++ {
+	for i := 1; i <= 100; i++ {
 		go func() {
-			for j := 0; j < 1000; j++ {
+			for j := 1; j <= 1000; j++ {
 				mutex.Lock()
 				x = x + 1
 				mutex.Unlock()

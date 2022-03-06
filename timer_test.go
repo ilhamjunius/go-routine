@@ -2,6 +2,7 @@ package goroutine
 
 import (
 	"fmt"
+	"sync"
 	"testing"
 	"time"
 )
@@ -18,4 +19,17 @@ func TestAfter(t *testing.T) {
 	fmt.Println(time.Now())
 	time := <-channel
 	fmt.Println(time)
+}
+
+func TestAfterFunction(t *testing.T) {
+	group := sync.WaitGroup{}
+	group.Add(1)
+
+	time.AfterFunc(5*time.Second, func() {
+		fmt.Println(time.Now())
+		group.Done()
+	})
+
+	fmt.Println(time.Now())
+	group.Wait()
 }

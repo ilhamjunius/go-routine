@@ -19,3 +19,12 @@ func TestTicker(t *testing.T) {
 	}
 
 }
+
+func TestTick(t *testing.T) {
+	channel := time.Tick(1 * time.Second)
+
+	for time := range channel {
+		fmt.Println(time)
+	}
+
+}
